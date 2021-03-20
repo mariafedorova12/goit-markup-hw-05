@@ -150,6 +150,7 @@ img {
 .navigation-item {
   display: inline-block;
   align-items: center;
+  position: relative;
 }
 
 .navigation-item:not(:last-child) {
@@ -166,7 +167,7 @@ img {
 
 .navigation-link {
   display: flex;
-  position: relative;
+
   padding-top: 32px;
   padding-bottom: 32px;
   font-weight: 500;
@@ -180,12 +181,13 @@ img {
 }
 
 .current::after {
-  content: '';
+  content: ' ';
+  display: block;
   position: absolute;
   width: 100%;
   height: 4px;
   left: 0;
-  bottom: 0;
+  bottom: -5px;
   border-radius: 2px;
   background: var(--accent-color);
 }
@@ -542,7 +544,6 @@ img {
   border: 1px solid;
   border-color: #ececec;
   background: #ffffff;
-  /* material shadow v1 */
 
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -597,6 +598,7 @@ img {
   height: 90px;
   border: 1px solid #afb1b8;
   border-radius: 4px;
+  transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-list-icon {
@@ -649,7 +651,6 @@ img {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.6;
-  /* identical to box height, or 162% */
   letter-spacing: 0.03em;
   border: 0.5px;
   background-color: var(--secondary-background-color);
@@ -727,14 +728,14 @@ img {
   line-height: 1.5;
   letter-spacing: 00.03em;
   opacity: 0;
-  overflow: scroll;
+  overflow: auto;
   transform: translateY(100%);
   background-color: rgba(33, 150, 243, 0.9);
   color: var(--header-background-color);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.services-link-list-wrapper:hover .portfolio-overlay,
-.services-link-list-wrapper:focus .portfolio-overlay {
+.services-list-wrapper:hover .portfolio-overlay,
+.services-list-wrapper:focus .portfolio-overlay {
   transform: translateY(0%);
   opacity: 1;
 }
